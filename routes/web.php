@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return '<h1>Hello from Laravel - OUTRA ALTARACAO PRA TESTE</h1>';
+    return '<h1>Hello from Laravel</h1>';
 });
