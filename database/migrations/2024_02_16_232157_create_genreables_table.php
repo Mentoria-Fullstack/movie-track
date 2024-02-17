@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('media_genres', function (Blueprint $table) {
+        Schema::create('genreables', function (Blueprint $table) {
             $table->id();
-            $table->integer('media_genresable_id');
-            $table->string('media_genresable_type');
+            $table->integer('genreable_id');
+            $table->string('genreable_type');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('media_genres');
+        Schema::dropIfExists('genreables');
     }
 };
