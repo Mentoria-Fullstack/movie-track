@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
+            
+            $table->string('title', 100);
+            $table->text('description');
+            $table->string('cover');
+            $table->string('release_date')->nullable();
+            
             $table->timestamps();
+
         });
     }
 
