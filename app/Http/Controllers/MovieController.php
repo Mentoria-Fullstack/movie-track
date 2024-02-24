@@ -12,7 +12,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return Movie::with(['genres'])->get();
+        return Movie::with(['media'])->get();
     }
 
     /**
