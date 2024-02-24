@@ -17,4 +17,9 @@ class Movie extends Model
     {
         return $this->morphToMany(Media::class, 'Mediable');
     }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
