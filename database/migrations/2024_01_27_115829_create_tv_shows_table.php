@@ -13,10 +13,6 @@ return new class extends Migration
     {
         Schema::create('tv_shows', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
-            $table->text('description');
-            $table->string('cover');
-            $table->date('release_date');
             $table->timestamps();
         });
     }
