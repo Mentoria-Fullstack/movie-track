@@ -17,15 +17,13 @@ class MediaFactory extends Factory
      */
     public function definition(): array
     {
-        $movie = Movie::factory()->create();
+
 
         return [
             'title' => fake()->text(30),
             'description' => fake()->paragraph,
             'cover' => fake()->imageUrl(),
             'release_date' => fake()->date(),
-            'mediable_id' => $movie->id,
-            'mediable_type' => Movie::class
         ];
     }
 }
