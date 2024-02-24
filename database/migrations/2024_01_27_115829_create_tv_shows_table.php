@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('tv_shows', function (Blueprint $table) {
             $table->id();
+            $table->integer('seasons');
+            $table->integer('episodes');
             $table->timestamps();
         });
     }

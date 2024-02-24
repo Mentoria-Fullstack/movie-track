@@ -10,9 +10,9 @@ class Genre extends Model
 {
     use HasFactory;
 
-    
-    public function media_genres(): HasMany
+
+    public function medias()
     {
-        return $this->hasMany(Media_genre::class);
+        return $this->belongsToMany(Media::class);
     }
 }
