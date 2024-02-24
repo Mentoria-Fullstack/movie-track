@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('media_genres', function (Blueprint $table) {
             $table->id();
+            $table->integer('media_id')->constrained()->onDelete('cascade');
+            $table->integer('genre_id')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }
