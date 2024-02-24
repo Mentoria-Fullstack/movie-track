@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tv_shows', function (Blueprint $table) {
+        Schema::create('media_genres', function (Blueprint $table) {
             $table->id();
-            $table->integer('seasons');
-            $table->integer('episodes');
+            $table->integer('media_id')->constrained()->onDelete('cascade');
+            $table->integer('genre_id')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tv_shows');
+        Schema::dropIfExists('media_genres');
     }
 };

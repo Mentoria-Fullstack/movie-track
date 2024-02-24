@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -42,4 +43,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //TODO: Refactor to use media instead of movie and tv show
+    public function movies(): BelongsToMany
+    {
+        return $this->belongsToMany(Movie::class, 'user_movie');
+    }
+
+    public function tvShows(): BelongsToMany
+    {
+        return $this->belongsToMany(TvShow::class, 'user_tv_show');
+    }
 }

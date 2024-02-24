@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tv_shows', function (Blueprint $table) {
-            $table->id();
-            $table->integer('seasons');
-            $table->integer('episodes');
-            $table->timestamps();
+        Schema::table('movies', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tv_shows');
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };
