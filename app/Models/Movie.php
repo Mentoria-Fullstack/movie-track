@@ -13,8 +13,8 @@ class Movie extends Model
 
     protected $fillable = ['title','description','cover','release_date', 'duration'];
 
-    public function Genreables(): MorphToMany
+    public function medias(): MorphToMany
     {
-        return $this->morphToMany(Genreable::class, 'Genresable');
+        return $this->morphToMany(Media::class, 'Mediable');
     }
 }
