@@ -13,15 +13,9 @@ return new class extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
-            $table->text('description');
-            $table->date('release_date');
             $table->integer('duration');
-            $table->string('thumbnail');
             $table->string('season');
-
             $table->foreignId('tv_show_id')->constrained()->onDelete('cascade');
-
             $table->timestamps();
         });
     }
