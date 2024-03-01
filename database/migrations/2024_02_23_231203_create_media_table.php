@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('cover');
             $table->string('release_date')->nullable();
-            $table->integer('mediable_id');
-            $table->string('mediable_type');
+            $table->integer('mediable_id')->nullable();
+            $table->string('mediable_type')->nullable();
 
             $table->timestamps();
 
