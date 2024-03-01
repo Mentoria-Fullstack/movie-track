@@ -13,6 +13,7 @@ class TvShow extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title','description','cover','release_date'];
 
     public function episodes(): HasMany
     {
@@ -21,6 +22,6 @@ class TvShow extends Model
 
     public function media(): MorphOne
     {
-        return $this->morphOne(media::class, 'mediable');
+        return $this->morphOne(Media::class, 'mediable');
     }
 }
