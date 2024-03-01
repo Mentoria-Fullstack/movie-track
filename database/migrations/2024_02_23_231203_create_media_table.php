@@ -11,11 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tv_show_genre', function (Blueprint $table) {
+        Schema::create('media', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tv_show_id')->constrained()->onDelete('cascade');
-            $table->foreignId('genre_id')->constrained()->onDelete('cascade');
+
+            $table->string('title', 100);
+            $table->text('description');
+            $table->string('cover');
+            $table->string('release_date')->nullable();
+            $table->integer('mediable_id')->nullable();
+            $table->string('mediable_type')->nullable();
+
             $table->timestamps();
+
         });
     }
 
@@ -24,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tv_show_genre');
+        Schema::dropIfExists('media');
     }
 };

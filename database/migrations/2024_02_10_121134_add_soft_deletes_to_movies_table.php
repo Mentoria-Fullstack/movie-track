@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movie_genre', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-            $table->foreignId('genre_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
+        Schema::table('movies', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movie_genre');
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };
