@@ -20,9 +20,6 @@ return new class extends Migration
             $table->string('release_date')->nullable();
             $table->integer('mediable_id')->nullable();
             $table->string('mediable_type')->nullable();
-
-            $table->timestamps();
-
         });
     }
 
