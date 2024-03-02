@@ -13,14 +13,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        $this->call([
-            MediaSeeder::class,
-        ]);
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        for ($i=0; $i < 10; $i++) { 
+            $this->call([
+                MovieSeeder::class,
+                TvShowSeeder::class
+            ]);
+        }
+        
     }
 }
