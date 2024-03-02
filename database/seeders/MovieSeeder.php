@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Media;
+use App\Models\Movie;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,12 +16,10 @@ class MovieSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('movies')->insert([
-            'title' => 'The Shawshank Redemption',
-            'director' => 'Frank Darabont',
-            'duration' => 142,
-            'release_date' => '1994-09-14',
-            'cover' => 'shawshank_redemption.jpg',
-        ]);
+        $movie=Movie::factory()->create();
+
+        $movie->media()->create(
+            Media::factory()->make()->toArray()
+        );
     }
 }
