@@ -51,12 +51,6 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
-    adminer:
-        image: adminer
-        ports:
-            - 8080:8080
-        networks:
-            - sail
     redis:
         image: 'redis:alpine'
         ports:
@@ -99,7 +93,7 @@ services:
         networks:
             - sail
     selenium:
-        image: seleniarm/standalone-chromium
+        image: selenium/standalone-chrome
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         volumes:
