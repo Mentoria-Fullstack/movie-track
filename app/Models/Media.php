@@ -10,7 +10,8 @@ class Media extends Model
 {
     use HasFactory;
 
-    public $hidden = ['mediable_id', 'mediable_type', 'created_at', 'updated_at'];
+    public $hidden = ['mediable_id', 'mediable_type'];
+    public $timestamps = false;
 
     public function mediable(): MorphTo
     {
