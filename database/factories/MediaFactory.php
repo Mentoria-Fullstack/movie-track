@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Movie;
+use App\Models\TvShow;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,16 +17,13 @@ class MediaFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
-        $movie = Movie::factory()->create();
-
+    {        
         return [
             'title' => fake()->text(30),
             'description' => fake()->paragraph,
             'cover' => fake()->imageUrl(),
             'release_date' => fake()->date(),
-            'mediable_id' => $movie->id,
-            'mediable_type' => Movie::class
         ];
+
     }
 }
