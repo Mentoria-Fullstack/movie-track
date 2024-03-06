@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MediaGenreController;
+use App\Http\Controllers\GenreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource("movies", MovieController::class)->except(['create', 'edit']);
+
+Route::get('mediagenre', [ MediaGenreController::class, 'index']);
+Route::get('genre', [ GenreController::class, 'index']);
+
 
 Route::get('users/{id}', [ UserController::class, 'show']);
 Route::get('users/{id}/movies', [ UserController::class, 'showUserMovies']);
