@@ -15,10 +15,9 @@ class MovieSeeder extends Seeder
      */
     public function run(): void
     {
-
-        $movie = Movie::factory()->create();
-
-        $movie->media()->create(Media::factory()->make()->toArray());
-
+        for ($i = 1; $i <=10; $i++){
+            $movie = Movie::factory()->create();
+            $movie->media()->create(Media::factory()->make()->toArray());
+        }
     }
 }

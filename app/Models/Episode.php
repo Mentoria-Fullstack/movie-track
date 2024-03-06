@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Episode extends Model
 {
@@ -16,9 +16,9 @@ class Episode extends Model
     {
         return $this->belongsTo(TvShow::class);
     }
-    public function medias(): MorphToMany
+    public function media(): MorphOne
     {
-        return $this->morphToMany(Media::class, 'Mediable');
+        return $this->morphOne(Media::class, 'mediable');
     }
 
 }

@@ -10,6 +10,8 @@ class Genre extends Model
 {
     use HasFactory;
 
+    public $hidden = ['created_at', 'updated_at'];
+    protected $fillable = ['name'];
 
     public function medias()
     {

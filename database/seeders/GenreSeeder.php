@@ -2,14 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Media;
-use App\Models\TvShow;
+
+use App\Models\Genre;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
-class TvShowSeeder extends Seeder
+class GenreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,9 +16,7 @@ class TvShowSeeder extends Seeder
     public function run(): void
     {
         for ($i = 1; $i <=10; $i++){
-            $tvshow = TvShow::factory()->create();
-            $tvshow->media()->create(Media::factory()->make()->toArray());
-        }        
+            Genre::factory()->create();
+        }
     }
 }
-

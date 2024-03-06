@@ -2,24 +2,25 @@
 
 namespace Database\Seeders;
 
+use App\Models\Genre;
 use App\Models\Media;
-use App\Models\TvShow;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
-class TvShowSeeder extends Seeder
+class MediaGenreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        for ($i = 1; $i <=10; $i++){
-            $tvshow = TvShow::factory()->create();
-            $tvshow->media()->create(Media::factory()->make()->toArray());
-        }        
+        $medias = Media::all();
+        $genres = Genre::all();
+
+        foreach($medias as $media){
+            $randomGenre = $genres->random();
+            $media->genres()->attach($randomGenre->id);
+        }
     }
 }
-

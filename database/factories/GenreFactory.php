@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TvShow>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Genre>
  */
-class TvShowFactory extends Factory
+class GenreFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,7 @@ class TvShowFactory extends Factory
     public function definition(): array
     {
         return [
-            'seasons' => fake()->numberBetween(1, 20),
-            'episodes' => fake()->numberBetween(1, 36),
+            'name' => fake()->text(10)
         ];
     }
 }

@@ -12,13 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i <=10; $i++){
-            $this->call([
-                MovieSeeder::class,
-                TvShowSeeder::class,
-                MediaSeeder::class,
-            ]);
-        }
+        $this->call([
+            GenreSeeder::class,
+            MovieSeeder::class,
+            TvShowSeeder::class,
+            MediaSeeder::class,
+            MediaGenreSeeder::class
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

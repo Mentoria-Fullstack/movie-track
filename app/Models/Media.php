@@ -17,8 +17,8 @@ class Media extends Model
         return $this->morphTo();
     }
 
-    public function generes()
+    public function genres()
     {
-        return $this->belongsToMany(Genre::class);
+        return $this->belongsToMany(Genre::class, 'media_genres');
     }
 }
